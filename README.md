@@ -9,6 +9,7 @@ Most ridiculous way to view an image
 
 - Only supports true color terminal
 - If terminal aspect ratio doesn't match image, it will warp the image
+- Linux only (i don't mind)
 
 ### Future plans
 - [ ] Add support for 256, 16 and 8 color mode
