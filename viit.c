@@ -19,8 +19,9 @@ int main(int argc, char **argv) {
 	int iwidth, iheight, num_channels;	
 	unsigned char *img_data = stbi_load(argv[1], &iwidth, &iheight, &num_channels, 0);
 
+	printf("\e[?1049h");
 	for (int y = 0; y < theight; y++) {
-		printf("\n");
+		printf("\e[%d;0H", y + 1);
 		for (int x = 0; x < twidth; x++) {
 			int imgy = y * iheight / theight;
 			int imgx = x * iwidth / twidth;
@@ -30,10 +31,10 @@ int main(int argc, char **argv) {
 			int b = off[2];
 			printf("\x1b[48;2;%d;%d;%dm ", r, g, b);
 		}
-		printf("\x1b[0m\r");
 	}
 
 	getchar();
+	printf("\e[?1049l");
 
 	stbi_image_free(img_data);
 }
